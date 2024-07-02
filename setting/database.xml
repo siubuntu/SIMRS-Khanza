@@ -8,11 +8,25 @@
     <entry key="PORT">nioxtijcpDaKSUiUiP5FAg==</entry>
     <entry key="USER">kMR3WfAwUK6MbhCyydxa0g==</entry>
     <entry key="PAS">hrgoMrWUgDPbp07rotPB4g==</entry> -->
+
     <entry key="HOST">ZJEL0/OysE6ptP46O0KLKg==</entry>
     <entry key="DATABASE">hG6ag2Bmx2sAb4Wb6YjnYg==</entry>
     <entry key="PORT">nioxtijcpDaKSUiUiP5FAg==</entry>
     <entry key="USER">hG6ag2Bmx2sAb4Wb6YjnYg==</entry>
     <entry key="PAS">L0t6p9lsLMGgwtP6A+/rgSOce06UxJfiYN9qxuGFu7I=</entry>
+
+    <!-- <entry key="HOST">BpOYg6yHZaxYpLIkDWtJkg==</entry>
+    <entry key="DATABASE">eJhBK4Lr6C9oIlKZAY9t4A==</entry>
+    <entry key="PORT">nioxtijcpDaKSUiUiP5FAg==</entry>
+    <entry key="USER">AZHNccBwSmSho84f+X8GyQ==</entry>
+    <entry key="PAS">MUSmSkPSUQz2gTQ+4dqbOO4TvBcl2rz6WGmZesqhQ1I=</entry> -->
+
+        <!-- <entry key="HOST">ZJEL0/OysE6ptP46O0KLKg==</entry>
+    <entry key="DATABASE">eG1meHQZNbx/wgc4kSP9dg=</entry>
+    <entry key="PORT">nioxtijcpDaKSUiUiP5FAg==</entry>
+    <entry key="USER">eG1meHQZNbx/wgc4kSP9dg=</entry>
+    <entry key="PAS">Pc3o5gMAHQOIwfbHFqwhng==</entry> -->
+
     <entry key="CARICEPAT">nonaktif</entry>
     <entry key="HOSTHYBRIDWEB">5k7+C7EnUw9nUv2Nix+DBA==</entry>
     <entry key="USERHYBRIDWEB">nmXqCKzrz9i8GTZlq7JruQ==</entry>
@@ -36,7 +50,7 @@
     <entry key="ALARMBOOKINGPERIKSA">yes</entry>
     <entry key="ALARMPENGADUANPASIEN">yes</entry>
     <entry key="ALARMPERMINTAANRANAP">yes</entry>
-    <entry key="MENUTRANSPARAN">yes</entry>
+    <entry key="MENUTRANSPARAN">no</entry>
     <entry key="URLAPIBPJS">https://apijkn.bpjs-kesehatan.go.id/vclaim-rest</entry>
     <entry key="SECRETKEYAPIBPJS">l4nh5eVYrLAER/I2A4b3Tw==</entry>
     <entry key="CONSIDAPIBPJS">l4nh5eVYrLAER/I2A4b3Tw==</entry>

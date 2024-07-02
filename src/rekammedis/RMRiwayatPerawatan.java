@@ -4027,7 +4027,7 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                                         }
 
                                         try {
-                                            rs3=koneksi.prepareStatement("select saran,kesan from saran_kesan_lab where no_rawat='"+rs.getString("no_rawat")+"' and tgl_periksa='"+rs4.getString("tgl_periksa")+"' and jam='"+rs4.getString("jam")+"'").executeQuery();
+                                            rs3=koneksi.prepareStatement("select saran,kesan,catatan from saran_kesan_lab where no_rawat='"+rs.getString("no_rawat")+"' and tgl_periksa='"+rs4.getString("tgl_periksa")+"' and jam='"+rs4.getString("jam")+"'").executeQuery();
                                             if(rs3.next()){      
                                                 htmlContent.append(
                                                         "<tr>"+
@@ -4035,6 +4035,11 @@ private void BtnPasienKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event
                                                            "<td valign='top'>Kesan</td>"+
                                                            "<td valign='top' colspan='5'>: "+rs3.getString("kesan")+"</td>"+
                                                         "</tr>"+
+                                                        "<tr>"+
+                                                           "<td valign='top' align='center'></td>"+
+                                                           "<td valign='top'>Catatan</td>"+
+                                                           "<td valign='top' colspan='5'>: "+rs3.getString("catatan")+"</td>"+
+                                                        "</tr>"+           
                                                         "<tr>"+
                                                            "<td valign='top' align='center'></td>"+
                                                            "<td valign='top'>Saran</td>"+

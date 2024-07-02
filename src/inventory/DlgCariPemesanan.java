@@ -1936,11 +1936,12 @@ private void ppHapusActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST
     
     public void isCek(){
         BtnPrint.setEnabled(akses.getpemesanan_obat());
-        if(akses.getkode().equals("Admin Utama")){
-            ppHapus.setEnabled(true);
-        }else{
-            ppHapus.setEnabled(false);
-        }        
+        ppHapus.setEnabled(akses.getpemesanan_obat());
+       // if(akses.getkode().equals("Admin Utama")){
+       //     ppHapus.setEnabled(true);
+       // }else{
+       //     ppHapus.setEnabled(false);
+       // }      
         ppBayar.setEnabled(akses.getbayar_pemesanan_obat());
     }
     

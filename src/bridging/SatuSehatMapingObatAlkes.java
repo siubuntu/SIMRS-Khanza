@@ -27,6 +27,9 @@ import javax.swing.JTable;
 import javax.swing.event.DocumentEvent;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableColumn;
+import inventory.DlgKFA;
+import kepegawaian.DlgCariDepartemen;
+
 
 /**
  *
@@ -41,6 +44,7 @@ public final class SatuSehatMapingObatAlkes extends javax.swing.JDialog {
     private ResultSet rs;    
     private int i=0;
     private DlgBarang barang=new DlgBarang(null,false);
+    private DlgCariKFA poli=new DlgCariKFA(null,false);
 
     /** Creates new form DlgJnsPerawatanRalan
      * @param parent
@@ -175,6 +179,31 @@ public final class SatuSehatMapingObatAlkes extends javax.swing.JDialog {
             public void keyReleased(KeyEvent e) {}
         });
         
+        
+        
+        poli.addWindowListener(new WindowListener() {
+            @Override
+            public void windowOpened(WindowEvent e) {}
+            @Override
+            public void windowClosing(WindowEvent e) {}
+            @Override
+            public void windowClosed(WindowEvent e) {
+                if(poli.getTable().getSelectedRow()!= -1){                    
+                    KFACode.setText(poli.getTable().getValueAt(poli.getTable().getSelectedRow(),0).toString());
+                    KFADisplay.setText(poli.getTable().getValueAt(poli.getTable().getSelectedRow(),1).toString());
+                }
+                KFACode.requestFocus();
+            }
+            @Override
+            public void windowIconified(WindowEvent e) {}
+            @Override
+            public void windowDeiconified(WindowEvent e) {}
+            @Override
+            public void windowActivated(WindowEvent e) {}
+            @Override
+            public void windowDeactivated(WindowEvent e) {}
+        });
+        
         ChkInput.setSelected(false);
         isForm();
     }
@@ -238,6 +267,7 @@ public final class SatuSehatMapingObatAlkes extends javax.swing.JDialog {
         RouteSystem = new widget.TextBox();
         jLabel18 = new widget.Label();
         RouteDisplay = new widget.TextBox();
+        btnBarang1 = new widget.Button();
 
         NamaBarang.setEditable(false);
         NamaBarang.setHighlighter(null);
@@ -490,13 +520,13 @@ public final class SatuSehatMapingObatAlkes extends javax.swing.JDialog {
         jLabel4.setText("KFA System :");
         jLabel4.setName("jLabel4"); // NOI18N
         FormInput.add(jLabel4);
-        jLabel4.setBounds(345, 10, 80, 23);
+        jLabel4.setBounds(380, 10, 80, 23);
 
         KodeBarang.setEditable(false);
         KodeBarang.setHighlighter(null);
         KodeBarang.setName("KodeBarang"); // NOI18N
         FormInput.add(KodeBarang);
-        KodeBarang.setBounds(212, 10, 100, 23);
+        KodeBarang.setBounds(250, 10, 100, 23);
 
         btnBarang.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/190.png"))); // NOI18N
         btnBarang.setMnemonic('1');
@@ -513,7 +543,7 @@ public final class SatuSehatMapingObatAlkes extends javax.swing.JDialog {
             }
         });
         FormInput.add(btnBarang);
-        btnBarang.setBounds(315, 10, 28, 23);
+        btnBarang.setBounds(360, 10, 28, 23);
 
         jLabel5.setText("Form Code :");
         jLabel5.setName("jLabel5"); // NOI18N
@@ -643,7 +673,7 @@ public final class SatuSehatMapingObatAlkes extends javax.swing.JDialog {
             }
         });
         FormInput.add(KFASystem);
-        KFASystem.setBounds(429, 10, 295, 23);
+        KFASystem.setBounds(464, 10, 260, 23);
 
         jLabel15.setText("Denominator System :");
         jLabel15.setName("jLabel15"); // NOI18N
@@ -704,6 +734,23 @@ public final class SatuSehatMapingObatAlkes extends javax.swing.JDialog {
         });
         FormInput.add(RouteDisplay);
         RouteDisplay.setBounds(564, 190, 160, 23);
+
+        btnBarang1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/190.png"))); // NOI18N
+        btnBarang1.setMnemonic('1');
+        btnBarang1.setToolTipText("Alt+1");
+        btnBarang1.setName("btnBarang1"); // NOI18N
+        btnBarang1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBarang1ActionPerformed(evt);
+            }
+        });
+        btnBarang1.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                btnBarang1KeyPressed(evt);
+            }
+        });
+        FormInput.add(btnBarang1);
+        btnBarang1.setBounds(210, 10, 28, 23);
 
         PanelInput.add(FormInput, java.awt.BorderLayout.CENTER);
 
@@ -1021,6 +1068,16 @@ public final class SatuSehatMapingObatAlkes extends javax.swing.JDialog {
         Valid.pindah(evt, RouteSystem, BtnSimpan);
     }//GEN-LAST:event_RouteDisplayKeyPressed
 
+    private void btnBarang1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBarang1ActionPerformed
+        poli.setSize(internalFrame1.getWidth()-20,internalFrame1.getHeight()-20);
+        poli.setLocationRelativeTo(internalFrame1);
+        poli.setVisible(true);      // TODO add your handling code here:
+    }//GEN-LAST:event_btnBarang1ActionPerformed
+
+    private void btnBarang1KeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_btnBarang1KeyPressed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnBarang1KeyPressed
+
     /**
     * @param args the command line arguments
     */
@@ -1068,6 +1125,7 @@ public final class SatuSehatMapingObatAlkes extends javax.swing.JDialog {
     private widget.ScrollPane Scroll;
     private widget.TextBox TCari;
     private widget.Button btnBarang;
+    private widget.Button btnBarang1;
     private widget.InternalFrame internalFrame1;
     private widget.Label jLabel10;
     private widget.Label jLabel11;
@@ -1198,6 +1256,12 @@ public final class SatuSehatMapingObatAlkes extends javax.swing.JDialog {
             PanelInput.setPreferredSize(new Dimension(WIDTH, 20));
             FormInput.setVisible(false);
             ChkInput.setVisible(true);
+        }
+    }
+
+    private static class NamaDepartemen {
+
+        public NamaDepartemen() {
         }
     }
 }

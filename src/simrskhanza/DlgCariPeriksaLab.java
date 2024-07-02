@@ -51,7 +51,7 @@ public class DlgCariPeriksaLab extends javax.swing.JDialog {
     private double ttl=0,item=0;
     private StringBuilder htmlContent;
     private double ttljmdokter=0,ttljmpetugas=0,ttlkso=0,ttlpendapatan=0,ttlbhp=0,ttljasasarana=0,ttljmperujuk=0,ttlmenejemen=0;
-    private String diagnosa="",saran="",kesan="",Suspen_Piutang_Laborat_Ranap="",Laborat_Ranap="",Beban_Jasa_Medik_Dokter_Laborat_Ranap="",Utang_Jasa_Medik_Dokter_Laborat_Ranap="",
+    private String diagnosa="",saran="",kesan="",catatan="",Suspen_Piutang_Laborat_Ranap="",Laborat_Ranap="",Beban_Jasa_Medik_Dokter_Laborat_Ranap="",Utang_Jasa_Medik_Dokter_Laborat_Ranap="",
             Beban_Jasa_Medik_Petugas_Laborat_Ranap="",Utang_Jasa_Medik_Petugas_Laborat_Ranap="",Beban_Kso_Laborat_Ranap="",Utang_Kso_Laborat_Ranap="",
             HPP_Persediaan_Laborat_Rawat_inap="",Persediaan_BHP_Laborat_Rawat_Inap="",Beban_Jasa_Sarana_Laborat_Ranap="",Utang_Jasa_Sarana_Laborat_Ranap="",
             Beban_Jasa_Perujuk_Laborat_Ranap="",Utang_Jasa_Perujuk_Laborat_Ranap="",Beban_Jasa_Menejemen_Laborat_Ranap="",Utang_Jasa_Menejemen_Laborat_Ranap="",
@@ -373,6 +373,8 @@ public class DlgCariPeriksaLab extends javax.swing.JDialog {
         Kesan = new widget.TextArea();
         Scroll3 = new widget.ScrollPane();
         Saran = new widget.TextArea();
+        Scroll5 = new widget.ScrollPane();
+        Catatan = new widget.TextArea();
         internalFrame1 = new widget.InternalFrame();
         panelisi3 = new widget.panelisi();
         label15 = new widget.Label();
@@ -817,7 +819,7 @@ public class DlgCariPeriksaLab extends javax.swing.JDialog {
         MnSaranKesan.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         MnSaranKesan.setForeground(new java.awt.Color(50, 50, 50));
         MnSaranKesan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/picture/category.png"))); // NOI18N
-        MnSaranKesan.setText("Kesan & Saran");
+        MnSaranKesan.setText("Kesan, Saran & Catatan");
         MnSaranKesan.setName("MnSaranKesan"); // NOI18N
         MnSaranKesan.setPreferredSize(new java.awt.Dimension(190, 26));
         MnSaranKesan.addActionListener(new java.awt.event.ActionListener() {
@@ -941,14 +943,29 @@ public class DlgCariPeriksaLab extends javax.swing.JDialog {
 
         Scroll3.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 253)), "Saran :", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50, 50, 50))); // NOI18N
         Scroll3.setName("Scroll3"); // NOI18N
+        Scroll3.setPreferredSize(new java.awt.Dimension(192, 150));
 
         Saran.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(201, 206, 196)));
         Saran.setColumns(20);
         Saran.setRows(5);
         Saran.setName("Saran"); // NOI18N
+        Saran.setPreferredSize(new java.awt.Dimension(182, 150));
         Scroll3.setViewportView(Saran);
 
-        jPanel3.add(Scroll3, java.awt.BorderLayout.CENTER);
+        jPanel3.add(Scroll3, java.awt.BorderLayout.LINE_START);
+
+        Scroll5.setBorder(javax.swing.BorderFactory.createTitledBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(255, 255, 253)), "Catatan :", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Tahoma", 0, 11), new java.awt.Color(50, 50, 50))); // NOI18N
+        Scroll5.setName("Scroll5"); // NOI18N
+        Scroll5.setPreferredSize(new java.awt.Dimension(192, 150));
+
+        Catatan.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(201, 206, 196)));
+        Catatan.setColumns(20);
+        Catatan.setRows(5);
+        Catatan.setName("Catatan"); // NOI18N
+        Catatan.setPreferredSize(new java.awt.Dimension(300, 150));
+        Scroll5.setViewportView(Catatan);
+
+        jPanel3.add(Scroll5, java.awt.BorderLayout.CENTER);
 
         internalFrame6.add(jPanel3, java.awt.BorderLayout.CENTER);
 
@@ -1208,7 +1225,6 @@ public class DlgCariPeriksaLab extends javax.swing.JDialog {
         TabRawat.setBackground(new java.awt.Color(255, 255, 253));
         TabRawat.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(241, 246, 236)));
         TabRawat.setForeground(new java.awt.Color(50, 50, 50));
-        TabRawat.setFont(new java.awt.Font("Tahoma", 0, 11)); // NOI18N
         TabRawat.setName("TabRawat"); // NOI18N
         TabRawat.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -3646,6 +3662,7 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                 try {
                     Kesan.setText("");
                     Saran.setText("");
+                    Catatan.setText("");
                     ps5=koneksi.prepareStatement(
                         "select saran,kesan from saran_kesan_lab where no_rawat=? and tgl_periksa=? and jam=?");  
                     try {
@@ -3687,12 +3704,12 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
                     tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString(),tbDokter.getValueAt(tbDokter.getSelectedRow(),3).toString(),tbDokter.getValueAt(tbDokter.getSelectedRow(),4).toString()
                 });
             }else{
-                if(Sequel.menyimpantf2("saran_kesan_lab","?,?,?,?,?","Kesan & Saran", 5,new String[]{
+                if(Sequel.menyimpantf2("saran_kesan_lab","?,?,?,?,?,?","Kesan & Saran", 6,new String[]{
                     tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString(),tbDokter.getValueAt(tbDokter.getSelectedRow(),3).toString(),
-                    tbDokter.getValueAt(tbDokter.getSelectedRow(),4).toString(),Saran.getText(),Kesan.getText()
+                    tbDokter.getValueAt(tbDokter.getSelectedRow(),4).toString(),Saran.getText(),Kesan.getText(),Catatan.getText()
                 })==false){
-                    Sequel.queryu2("update saran_kesan_lab set saran=?,kesan=? where no_rawat=? and tgl_periksa=? and jam=?",5,new String[]{
-                        Saran.getText(),Kesan.getText(),tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString(),
+                    Sequel.queryu2("update saran_kesan_lab set saran=?,kesan=? catatan=? where no_rawat=? and tgl_periksa=? and jam=?",5,new String[]{
+                        Saran.getText(),Kesan.getText(),Catatan.getText(),tbDokter.getValueAt(tbDokter.getSelectedRow(),0).toString(),
                         tbDokter.getValueAt(tbDokter.getSelectedRow(),3).toString(),tbDokter.getValueAt(tbDokter.getSelectedRow(),4).toString()
                     });
                 }
@@ -5984,6 +6001,7 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
     private widget.Button BtnKeluar;
     private widget.Button BtnPrint;
     private widget.Button BtnSimpan;
+    private widget.TextArea Catatan;
     private widget.TextBox Kd2;
     private widget.TextArea Kesan;
     private widget.editorpane LoadHTML1;
@@ -6023,6 +6041,7 @@ private void tbDokterKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_
     private widget.ScrollPane Scroll;
     private widget.ScrollPane Scroll3;
     private widget.ScrollPane Scroll4;
+    private widget.ScrollPane Scroll5;
     private widget.TextBox TCari;
     private javax.swing.JTabbedPane TabRawat;
     private widget.Tanggal Tgl1;
